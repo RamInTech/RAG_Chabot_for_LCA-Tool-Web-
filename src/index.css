@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Government & Mining Professional Palette */
+    --background: 220 15% 97%;
+    --foreground: 220 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 15%;
+
+    /* Deep Government Blue */
+    --primary: 220 85% 25%;
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 220 85% 20%;
+
+    /* Mining Earth Tones */
+    --secondary: 35 25% 85%;
+    --secondary-foreground: 35 65% 25%;
+
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 15% 45%;
+
+    --accent: 45 85% 55%;
+    --accent-foreground: 45 25% 15%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 95%;
+    --ring: 220 85% 25%;
+
+    /* Chat specific colors */
+    --chat-user: 220 85% 25%;
+    --chat-user-foreground: 0 0% 98%;
+    --chat-bot: 0 0% 100%;
+    --chat-bot-foreground: 220 25% 15%;
+    --chat-sidebar: 220 20% 96%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 85% 25%), hsl(220 85% 35%));
+    --gradient-secondary: linear-gradient(135deg, hsl(35 25% 85%), hsl(35 25% 90%));
+    --gradient-accent: linear-gradient(135deg, hsl(45 85% 55%), hsl(45 85% 65%));
+
+    /* Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(220 25% 15% / 0.1);
+    --shadow-medium: 0 4px 12px -4px hsl(220 25% 15% / 0.15);
+    --shadow-strong: 0 8px 24px -8px hsl(220 25% 15% / 0.2);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 220 15% 92%;
+
+    --card: 220 25% 10%;
+    --card-foreground: 220 15% 92%;
+
+    --popover: 220 25% 10%;
+    --popover-foreground: 220 15% 92%;
+
+    --primary: 220 85% 65%;
+    --primary-foreground: 220 25% 8%;
+    --primary-hover: 220 85% 70%;
+
+    --secondary: 35 25% 20%;
+    --secondary-foreground: 35 25% 85%;
+
+    --muted: 220 25% 15%;
+    --muted-foreground: 220 15% 65%;
+
+    --accent: 45 85% 65%;
+    --accent-foreground: 45 25% 8%;
+
+    --destructive: 0 75% 65%;
+    --destructive-foreground: 0 0% 8%;
+
+    --border: 220 25% 18%;
+    --input: 220 25% 15%;
+    --ring: 220 85% 65%;
+
+    /* Chat specific dark colors */
+    --chat-user: 220 85% 65%;
+    --chat-user-foreground: 220 25% 8%;
+    --chat-bot: 220 25% 12%;
+    --chat-bot-foreground: 220 15% 92%;
+    --chat-sidebar: 220 25% 10%;
+
+    /* Dark gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 85% 25%), hsl(220 85% 35%));
+    --gradient-secondary: linear-gradient(135deg, hsl(35 25% 20%), hsl(35 25% 25%));
+    --gradient-accent: linear-gradient(135deg, hsl(45 85% 55%), hsl(45 85% 65%));
+
+    /* Dark shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.2);
+    --shadow-medium: 0 4px 12px -4px hsl(0 0% 0% / 0.3);
+    --shadow-strong: 0 8px 24px -8px hsl(0 0% 0% / 0.4);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Professional typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  /* Chat animations */
+  .chat-message-enter {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  .chat-message-enter-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Professional button hover effects */
+  .btn-professional {
+    @apply transition-all duration-200 ease-in-out;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .btn-professional:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-medium);
+  }
+
+  /* Typing indicator dots */
+  .typing-dot {
+    @apply w-2 h-2 bg-muted-foreground rounded-full animate-pulse;
+    animation-delay: var(--delay);
+  }
+
+  /* Scrollbar styling */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
